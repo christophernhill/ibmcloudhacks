@@ -6,3 +6,4 @@
 * ```apt-get -y install curl```
 * ```dl=`curl https://clis.ng.bluemix.net/download/bluemix-cli/latest/linux64  | sed s'/.*"\(https[^"]*\).*/\1/'` ```
 * ```curl ${dl} > `basename ${dl}` ```
+* ```Bluemix_CLI/bin/ibmcloud login ```
