@@ -1,5 +1,5 @@
 # Commands to set up GPU machine
-# for hosting docker
+# for hosting docker (CentOS 7 based)
 ```
 # Generic security for new VM
 yum -y update
