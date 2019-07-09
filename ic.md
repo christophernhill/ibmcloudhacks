@@ -42,3 +42,11 @@ nic (dedicated host)              100,1000
 ```
 Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter dal10 --os CENTOS_LATEST_64 --hostname cnh-v100-02 --domain QI-Hill.cloud --san
 ```
+
+```
+Bluemix_CLI/bin/ibmcloud sl vs list  
+```
+
+```
+Bluemix_CLI/bin/ibmcloud sl vs detail 84047749 
+```
