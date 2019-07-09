@@ -38,3 +38,10 @@ pkill -SIGHUP dockerd
 docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 docker run --runtime=nvidia -i -t --rm nvidia/cuda /bin/bash
 ```
+
+```
+apt update
+apt-get install wget
+export JULIA_VERSION=1.1
+wget -nv https://julialang-s3.julialang.org/bin/linux/x64/${JULIA_VERSION}/julia-${JULIA_VERSION}-latest-linux-x86_64.tar.gz
+```
