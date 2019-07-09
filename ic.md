@@ -47,8 +47,14 @@ Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter dal10 --
 Bluemix_CLI/bin/ibmcloud sl vs list  
 ```
 
+
+
 ```
 Bluemix_CLI/bin/ibmcloud sl vs detail 84047749 
+```
+
+```
+Bluemix_CLI/bin/ibmcloud sl vs cancel -f  84047749
 ```
 
 ```
