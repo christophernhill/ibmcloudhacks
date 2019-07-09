@@ -44,4 +44,6 @@ apt update
 apt-get install wget
 export JULIA_VERSION=1.1
 wget -nv https://julialang-s3.julialang.org/bin/linux/x64/${JULIA_VERSION}/julia-${JULIA_VERSION}-latest-linux-x86_64.tar.gz
+mkdir julia-${JULIA_VERSION}
+tar zxf julia-${JULIA_VERSION}-latest-linux-x86_64.tar.gz -C julia-${JULIA_VERSION} --strip-components 1
 ```
