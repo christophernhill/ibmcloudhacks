@@ -40,7 +40,7 @@ nic (dedicated host)              100,1000
 ```
 
 ```
-Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter dal10 --os CENTOS_LATEST_64 --hostname cnh-v100-02 --domain QI-Hill.cloud --san
+Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter dal10 --os CENTOS_LATEST_64 --hostname cnh-v100-02 --domain QI-Hill.cloud --san 
 ```
 
 ```
@@ -49,4 +49,57 @@ Bluemix_CLI/bin/ibmcloud sl vs list
 
 ```
 Bluemix_CLI/bin/ibmcloud sl vs detail 84047749 
+```
+
+```
+Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter dal10 --os CENTOS_LATEST_64 --hostname cnh-v100-03-8 --domain QI-Hill.cloud --san -f 
+Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter dal12 --os CENTOS_LATEST_64 --hostname cnh-v100-03-9 --domain QI-Hill.cloud --san -f 
+Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter lon04 --os CENTOS_LATEST_64 --hostname cnh-v100-03-17 --domain QI-Hill.cloud --san -f 
+```
+
+```
+#!/bin/bash -xv
+set +e
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter ams01 --os CENTOS_LATEST_64 --hostname cnh-v100-03-1 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter ams03 --os CENTOS_LATEST_64 --hostname cnh-v100-03-2 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter che01 --os CENTOS_LATEST_64 --hostname cnh-v100-03-3 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter dal05 --os CENTOS_LATEST_64 --hostname cnh-v100-03-4 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter dal06 --os CENTOS_LATEST_64 --hostname cnh-v100-03-5 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter dal07 --os CENTOS_LATEST_64 --hostname cnh-v100-03-6 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter dal09 --os CENTOS_LATEST_64 --hostname cnh-v100-03-7 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter dal10 --os CENTOS_LATEST_64 --hostname cnh-v100-03-8 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter dal12 --os CENTOS_LATEST_64 --hostname cnh-v100-03-9 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter dal13 --os CENTOS_LATEST_64 --hostname cnh-v100-03-10 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter fra02 --os CENTOS_LATEST_64 --hostname cnh-v100-03-11 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter fra04 --os CENTOS_LATEST_64 --hostname cnh-v100-03-12 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter fra05 --os CENTOS_LATEST_64 --hostname cnh-v100-03-13 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter hkg02 --os CENTOS_LATEST_64 --hostname cnh-v100-03-14 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter hou02 --os CENTOS_LATEST_64 --hostname cnh-v100-03-15 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter lon02 --os CENTOS_LATEST_64 --hostname cnh-v100-03-16 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter lon04 --os CENTOS_LATEST_64 --hostname cnh-v100-03-17 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter lon05 --os CENTOS_LATEST_64 --hostname cnh-v100-03-18 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter lon06 --os CENTOS_LATEST_64 --hostname cnh-v100-03-19 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter mel01 --os CENTOS_LATEST_64 --hostname cnh-v100-03-20 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter mex01 --os CENTOS_LATEST_64 --hostname cnh-v100-03-21 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter mil01 --os CENTOS_LATEST_64 --hostname cnh-v100-03-22 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter mon01 --os CENTOS_LATEST_64 --hostname cnh-v100-03-23 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter osl01 --os CENTOS_LATEST_64 --hostname cnh-v100-03-24 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter par01 --os CENTOS_LATEST_64 --hostname cnh-v100-03-25 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter sao01 --os CENTOS_LATEST_64 --hostname cnh-v100-03-26 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter sea01 --os CENTOS_LATEST_64 --hostname cnh-v100-03-27 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter seo01 --os CENTOS_LATEST_64 --hostname cnh-v100-03-28 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter sjc01 --os CENTOS_LATEST_64 --hostname cnh-v100-03-29 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter sjc03 --os CENTOS_LATEST_64 --hostname cnh-v100-03-30 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter sjc04 --os CENTOS_LATEST_64 --hostname cnh-v100-03-31 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter sng01 --os CENTOS_LATEST_64 --hostname cnh-v100-03-32 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter syd01 --os CENTOS_LATEST_64 --hostname cnh-v100-03-33 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter syd04 --os CENTOS_LATEST_64 --hostname cnh-v100-03-34 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter syd05 --os CENTOS_LATEST_64 --hostname cnh-v100-03-35 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter tok02 --os CENTOS_LATEST_64 --hostname cnh-v100-03-36 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter tok04 --os CENTOS_LATEST_64 --hostname cnh-v100-03-37 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter tok05 --os CENTOS_LATEST_64 --hostname cnh-v100-03-38 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter tor01 --os CENTOS_LATEST_64 --hostname cnh-v100-03-39 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter wdc01 --os CENTOS_LATEST_64 --hostname cnh-v100-03-40 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter wdc04 --os CENTOS_LATEST_64 --hostname cnh-v100-03-41 --domain QI-Hill.cloud --san -f   )
+( Bluemix_CLI/bin/ibmcloud sl vs create --flavor AC2_8X60X25 --datacenter wdc06 --os CENTOS_LATEST_64 --hostname cnh-v100-03-42 --domain QI-Hill.cloud --san -f   )
 ```
