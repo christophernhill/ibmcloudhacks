@@ -51,3 +51,21 @@ RUN ( echo "DEFAULT_SSHHOST=127.0.0.1" > /etc/ood/config/apps/shell/env )
 ```
 
 
+# To point id "user" to remote host (P9 at UMD as user cnh for example)
+```
+docker exec -i -t b73f7a331c37 /bin/bash
+```
+
+```
+echo "DEFAULT_SSHHOST=p9umass" > /etc/ood/config/apps/shell/env
+
+cat > /home/user/.ssh/config <<!
+Host p9umass
+ Hostname carnie.cscvr.umassd.edu
+ User cnh
+ ProxyCommand ssh  -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" cnh@carnie.cscvr.umassd.edu nc power1 22
+ # ProxyCommand ssh -tttt -l cnh carnie.cscvr.umassd.edu ssh -vvvvvv -ttt power1
+ # ProxyCommand ssh -t -l cnh carnie.cscvr.umassd.edu ssh -vvvvvv -t node50
+ # ProxyCommand ssh -T -l cnh carnie.cscvr.umassd.edu
+!
+```
