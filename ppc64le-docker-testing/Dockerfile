@@ -1,1 +1,1 @@
-FROM: ppc64le/centos
+FROM ppc64le/centos
