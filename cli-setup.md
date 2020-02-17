@@ -8,3 +8,4 @@
 * ```curl ${dl} > `basename ${dl}` ```
 * ```tar -xzvf `basename ${dl}` ```
 * ``` Bluemix_CLI/bin/ibmcloud login -u XXX@mit.edu -p 'PPPPPPPPPPPPPPPPPPPP' -r us-east -c 6b8a45a3901c48c88bdc10df5aedef6a ```
+* ```Bluemix_CLI/bin/ibmcloud plugin install vpc-infrastructure```
