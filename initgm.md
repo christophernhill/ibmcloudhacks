@@ -57,4 +57,12 @@ tar zxf julia-${JULIA_VERSION}-latest-linux-x86_64.tar.gz -C julia-${JULIA_VERSI
  yum -y install docker
  systemctl enable docker
  systemctl start  docker
+ vi /etc/docker/daemon.json
+ cat /etc/docker/daemon.json
+   {
+    "group": "dockerroot"
+   }
+ systemctl restart docker
+ useradd cnh
+ usermod -aG dockerroot cnh
 ```
