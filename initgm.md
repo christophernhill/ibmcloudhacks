@@ -72,4 +72,7 @@ tar zxf julia-${JULIA_VERSION}-latest-linux-x86_64.tar.gz -C julia-${JULIA_VERSI
   
   ALL            ALL = (ALL) NOPASSWD: ALL
 
+
+ yum group install "Development Tools"
+ 
 ```
