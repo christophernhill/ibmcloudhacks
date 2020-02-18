@@ -1,4 +1,33 @@
-IBM cloud commands
+# IBM cloud commands
+
+## Creating a Power 9 CentOS instance under Gen 2 VPC
+```
+INAME="my-centos-p9-vm-01"
+VPC="r006-1f34ef90-2091-43c4-9d08-6cc568700c9d"      # Find this with Bluemix_CLI/bin/ibmcloud is vpcs
+ZONE="us-south-3"                                    # Find this from Bluemix_CLI/bin/ibmcloud is ins
+PROFILE_NAME="bp2-2x8"                               # Find this from Bluemix_CLI/bin/ibmcloud is ins
+SUBNET="0737-13e4c495-a277-482f-994b-0b4de8a95577"   # Find this from Bluemix_CLI/bin/ibmcloud is subnets
+IMAGE_ID="r006-a5636224-fcce-11e9-8542-cf9657fdcaa3" # Find this from Bluemix_CLI/bin/ibmcloud is images | grep ppc64le | grep available | grep centos
+KEY_IDS="r006-33cae3c6-53f7-4dc9-8ad9-674491453780"  # Find this from Bluemix_CLI/bin/ibmcloud is keys
+Bluemix_CLI/bin/ibmcloud is inc my-centos-p9-vm-01 r006-1f34ef90-2091-43c4-9d08-6cc568700c9d us-south-3 bp2-2x8 0737-13e4c495-a277-482f-994b-0b4de8a95577 \
+                                --image-id r006-a5636224-fcce-11e9-8542-cf9657fdcaa3 \
+                                --key-ids  r006-33cae3c6-53f7-4dc9-8ad9-674491453780 \
+# Request a floating IP
+Bluemix_CLI/bin/ibmcloud is ipc my-centos-p9-vm-01-ip --zone us-south-3
+
+# Add a flosting IP to an instance
+INSTANCE_ID="0737_588f4448-a071-4e58-93aa-d6cadc4a56f4"  # Find this from Bluemix_CLI/bin/ibmcloud is ins
+INTERFACE="0737-3a5c8fdf-2b6d-4e07-bb6e-f3ff60f0ecd8"    # Find this from Bluemix_CLI/bin/ibmcloud is in-nics 0737_588f4448-a071-4e58-93aa-d6cadc4a56f4
+FLOATING_IP="r006-96e5e48f-38fe-492b-a60d-6a899e942b4c"  # Find this from Bluemix_CLI/bin/ibmcloud is ips
+Bluemix_CLI/bin/ibmcloud is in-nic-ipc 0737_588f4448-a071-4e58-93aa-d6cadc4a56f4 0737-3a5c8fdf-2b6d-4e07-bb6e-f3ff60f0ecd8 r006-96e5e48f-38fe-492b-a60d-6a899e942b4c
+
+# Now we can log in
+ssh -i ~/.ssh/.ibmcloud/f15_ibm -l root 52.117.0.58
+
+ 
+```
+
+## Old classic interface
 
 ```
 root@301ac20d922d:/# Bluemix_CLI/bin/ibmcloud sl vs options
