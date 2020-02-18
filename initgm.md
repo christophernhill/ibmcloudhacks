@@ -55,4 +55,6 @@ tar zxf julia-${JULIA_VERSION}-latest-linux-x86_64.tar.gz -C julia-${JULIA_VERSI
  yum -y update
  yum -y install epel-release
  yum -y install docker
+ systemctl enable docker
+ systemctl start  docker
 ```
