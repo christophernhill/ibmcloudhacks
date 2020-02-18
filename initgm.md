@@ -65,4 +65,11 @@ tar zxf julia-${JULIA_VERSION}-latest-linux-x86_64.tar.gz -C julia-${JULIA_VERSI
  systemctl restart docker
  useradd cnh
  usermod -aG dockerroot cnh
+ vi /etc/sudoers
+ tail -4 /etc/sudoers
+  ## Read drop-in files from /etc/sudoers.d (the # here does not mean a comment)
+  #includedir /etc/sudoers.d
+  
+  ALL            ALL = (ALL) NOPASSWD: ALL
+
 ```
