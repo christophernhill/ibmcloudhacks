@@ -47,3 +47,12 @@ wget -nv https://julialang-s3.julialang.org/bin/linux/x64/${JULIA_VERSION}/julia
 mkdir julia-${JULIA_VERSION}
 tar zxf julia-${JULIA_VERSION}-latest-linux-x86_64.tar.gz -C julia-${JULIA_VERSION} --strip-components 1
 ```
+
+# What about ppc64le
+
+
+```
+ yum -y update
+ yum -y install epel-release
+ yum -y install docker
+```
