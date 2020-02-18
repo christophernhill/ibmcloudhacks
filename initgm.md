@@ -77,6 +77,40 @@ tar zxf julia-${JULIA_VERSION}-latest-linux-x86_64.tar.gz -C julia-${JULIA_VERSI
   ALL            ALL = (ALL) NOPASSWD: ALL
 
 
+ # Build sssd/github
  yum group install "Development Tools"
+ yum -y install popt-devel
+ yum -y install libtalloc-devel
+ yum -y install libtdb-devel
+ yum -y install libtevent-devel
+ yum -y install ldb-tools libldb-devel
+ yum -y install libdhash-devel
+ yum -y install libcollection-devel
+ yum -y install libini_config-devel
+ yum -y install pam-devel libpamtest-devel
+ yum -y install openldap-'*'
+ yum -y install pcre-devel
+ yum -y install krb5-devel sssd-krb5 sssd-krb5-common
+ yum -y install c-ares-devel
+ yum -y install bind-utils
+ yum -y install cifs-utils-devel cifs-utils
+ yum -y install libnfsidmap-devel
+ yum -y install libcurl-devel
+ yum -y install sssd-kcm
+ yum -y install libuuid libuuid-devel
+ yum -y install jansson-devel
+ yum -y install glib2 glib2-devel
+ yum -y install dbus-devel
+ yum -y install libxslt-devel
+ yum -y install xml-common
+ yum -y install docbook-style-xsl 
+ yum -y install libsemanage-devel
+ yum -y install nss nss-devel
+ yum -y install systemd-devel
  
+ git clone https://github.com/JuliaComputing/sssd-github.git
+ cd sssd-github
+ autoreconf -i
+ autoconf
+ ./configure --with-github --without-samba --without-python2-bindings --without-python3-bindings
 ```
