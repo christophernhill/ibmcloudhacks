@@ -113,4 +113,5 @@ tar zxf julia-${JULIA_VERSION}-latest-linux-x86_64.tar.gz -C julia-${JULIA_VERSI
  autoreconf -i
  autoconf
  ./configure --with-github --without-samba --without-python2-bindings --without-python3-bindings
+ cp .libs/libsss_github.so /usr/lib64/sssd/
 ```
