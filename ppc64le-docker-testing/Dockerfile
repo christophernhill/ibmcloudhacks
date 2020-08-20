@@ -1,4 +1,4 @@
-ADD file:9a1a27f07b5eac878569b1a3279d14f876400a0bbb293be818f5554662ac82e9 in /
+FROM ppc64le/ubuntu:bionic
 
 RUN /bin/sh -c [ -z "$(apt-get indextargets)" ]
 
