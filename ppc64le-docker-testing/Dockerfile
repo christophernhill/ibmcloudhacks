@@ -1,0 +1,38 @@
+FROM ubuntu:bionic as WMLCE
+
+SHELL ["/bin/bash", "-c"]
+
+RUN apt-get update
+RUN apt-get install -y wget git openssh-server openssh-client
+
+ENV IBM_POWERAI_LICENSE_ACCEPT="yes"
+
+#install ANACONDA
+RUN wget https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-ppc64le.sh && \
+  sh Anaconda3-2019.10-Linux-ppc64le.sh -b
+
+RUN source ~/anaconda3/bin/activate && conda config --prepend channels \
+  https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda
+RUN source ~/anaconda3/bin/activate && conda create --name wmlce python=3.6
+RUN source ~/anaconda3/bin/activate && conda activate wmlce && conda install powerai
+
+
+# FROM WMLCE as other_dependencies
+
+# MAINTAINER James Peraire-Bueno "pbja@mit.edu"
+
+# Install general software dependencies.
+#RUN apt-get install -y apt-utils lsb-release
+#RUN apt-get install -y git openssh-client wget
+#RUN apt-get install -y sudo && rm -rf /var/lib/apt/lists/*
+#RUN rm -rf /var/lib/apt/lists/*
+
+#WORKDIR /goofy
+
+# Install python requirements.
+#COPY ./requirements.txt .
+#RUN pip install -r requirements.txt
+
+# FROM other_dependencies AS training
+# Copy source.
+# COPY ./ ./
