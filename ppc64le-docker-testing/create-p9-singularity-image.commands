@@ -1,0 +1,44 @@
+# How to create an image fro scratch
+
+1. launch an x86 Ubuntu VM somewhere, for example AWS or using Vagrant ( https://www.vagrantup.com/downloads ) with VirtualBox ( https://www.virtualbox.org/wiki/Downloads )
+
+2. vagrant up generic/ubuntu1804
+   vagrant ssh 
+
+3. install Docker on VM
+   sudo bash
+   apt-get remove docker docker-engine docker.io containerd runc
+   apt-get update
+   apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   apt-key fingerprint 0EBFCD88
+   add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+   apt-get update
+   apt-get install docker-ce docker-ce-cli containerd.io
+
+4. Check docker works
+   docker run hello-world
+
+5. Set docker to experimental
+   - make client experimental
+   export DOCKER_CLI_EXPERIMENTAL=enabled
+   - make server experimental
+   - in /lib/systemd/system/docker.service change to
+   ExecStart=/usr/bin/dockerd --experimental -H fd:// --containerd=/run/containerd/containerd.sock
+
+   systemctl daemon-reload
+   systemctl restart docker
+
+6. Configure qemu for ppc64le with docker
+   docker run --rm --privileged aptman/qus -s -- -p 
+
+7. See if ppc64le works ( see https://github.com/dbhi/qus for explanations )
+   docker run --rm -i -t --platform ppc64le ppc64le/ubuntu /bin/bash
+   root@90765acb7126:/# file /bin/ls
+/bin/ls: ELF 64-bit LSB shared object, 64-bit PowerPC or cisco 7500, version 1 (SYSV), dynamically linked, interpreter /lib64/ld64.so.2, BuildID[sha1]=da9b7dc089cbaee41f4d1af3da65a40d29b25773, for GNU/Linux 3.10.0, stripped
+
+8. Now build a Docker image you want
+   curl https://raw.githubusercontent.com/christophernhill/ibmcloudhacks/master/ppc64le-docker-testing/jp-Dockerfile > Dockerfile
+   docker build --platform ppc64le --tag jp-p9-sing-test:1.0 .
+   docker tag jp-p9-sing-test:1.0 christophernhill/jp-p9-sing-test:1.0
+   docker push christophernhill/jp-p9-sing-test:1.0
