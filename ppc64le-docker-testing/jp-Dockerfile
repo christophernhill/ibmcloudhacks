@@ -1,5 +1,5 @@
 # To build -
-# docker build --platform=ppc64le --tag jp-p9-sing-test:1.0 .
+# docker build --platform ppc64le --tag jp-p9-sing-test:1.0 .
 #
 FROM ubuntu:bionic as WMLCE
 
