@@ -1,4 +1,4 @@
-FROM ubuntu:bionic as WMLCE
+FROM ubuntu:bionic as wmlce
 
 SHELL ["/bin/bash", "-c"]
 
@@ -14,10 +14,10 @@ RUN wget https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-ppc64le.sh &&
 RUN source ~/anaconda3/bin/activate && conda config --prepend channels \
   https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda
 RUN source ~/anaconda3/bin/activate && conda create --name wmlce python=3.6
-RUN source ~/anaconda3/bin/activate && conda activate wmlce && conda install powerai
+# RUN source ~/anaconda3/bin/activate && conda activate wmlce && conda install powerai
 
 
-# FROM WMLCE as other_dependencies
+# FROM wmlce as other_dependencies
 
 # MAINTAINER James Peraire-Bueno "pbja@mit.edu"
 
